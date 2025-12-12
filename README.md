@@ -36,16 +36,16 @@ See module READMEs for detailed documentation.
 │   ├── single_data_acquisition.py   # Probe generation + local averages
 │   ├── single_coulomb_estimator.py  # Linear system solver (λ, y)
 │   ├── single_plotter.py       # Error vs noise plots
-│   ├── data/                   # Generated data (ignored by git)
-│   └── figures/                # Generated figures (ignored by git)
+│   ├── data/                   # Generated data
+│   └── figures/                # Generated figures
 └── multi_coulomb/              # Multiple sources (iterative refinement)
   ├── config.py               # Config (sources, refinement, I/O)
   ├── multi_main.py          # Entry point (load/generate → estimate)
   ├── data_acquisition.py     # Probe generation + local averages
   ├── coulomb_estimator.py    # Iterative refinement + matching
   ├── plotter.py              # Error vs noise + convergence plots
-  ├── data/                   # Generated data (ignored by git)
-  └── figures/                # Generated figures (ignored by git)
+  ├── data/                   # Generated data
+  └── figures/                # Generated figures
 ```
 
 ## Configuration
