@@ -92,6 +92,7 @@ weight = 100.0  # Weight parameter (unused in current implementation)
 # --- Data Handling ---
 los = "0"  # "0": load, "1": save new data, "2": sample without saving
 multi_filename = "multi3_data_m30.pkl"  # Filename (main prepends data/ directory)
+real_opt = True  # Whether to use the real values for optimization benchmarking
 
 # ============================================================================
 # PLOT

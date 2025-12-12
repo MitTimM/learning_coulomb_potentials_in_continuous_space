@@ -23,6 +23,7 @@ from config import (
     max_approx_step,
     weight,
     prec_step,
+    real_opt,
 )
 
 
@@ -318,13 +319,17 @@ def solve_multi_coulomb(omega, lam, y, compl_rate=True):
         or np.max(np.abs(lam_est - lam_prev)) > prec_step
     ) and it < max_approx_step:
 
-        error_y[it] = np.linalg.norm(y - y_est)
-        error_lam[it] = np.linalg.norm(lam - lam_est)
+        if real_opt:
+            error_y[it] = np.linalg.norm(y - y_est)
+            error_lam[it] = np.linalg.norm(lam - lam_est)
 
-        if compl_rate:
+        if compl_rate and real_opt:
             print(
                 f"Iteration {it+1}: |Δy| = {error_y[it]:.6e}, |Δλ| = {error_lam[it]:.6e}"
             )
+
+        elif compl_rate:
+            print(f"Iteration {it+1} in progress...")
 
         y_prev, lam_prev = y_est.copy(), lam_est.copy()
 
