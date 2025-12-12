@@ -6,11 +6,15 @@ import os
 # Add parent directory (Numerics) to path
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
+from typing import Tuple, Sequence
 import numpy as np
 from geometry import find_on_vector, max_box_index, space_vector
+from config import numerr
 
 
-def solve_linear_equations(omega, domain_size):
+def solve_linear_equations(
+    omega: np.ndarray, domain_size: Sequence[float]
+) -> Tuple[float, np.ndarray]:
     """Estimate charge λ and position y from local averages using inverse square law.
 
     Args:
@@ -28,7 +32,7 @@ def solve_linear_equations(omega, domain_size):
 
     # Select 4 strategic points for linear system
     index = np.zeros((4, 3), dtype=np.int32)
-    index[3], dim = find_on_vector(max_index, max_dist_index, omega)
+    index[3], dim = find_on_vector(max_index, max_dist_index, omega, numerr)
 
     ce = np.eye(1, 3, k=dim, dtype=np.int32)[0]
     index[dim] = np.abs(ce - max_dist_index, dtype=np.int32)

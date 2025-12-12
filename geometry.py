@@ -1,21 +1,20 @@
+from typing import Tuple
 import numpy as np
-from config import *
 
 
-def space_vector(index, scale):
+def space_vector(index: Tuple[int, int, int], scale: np.ndarray) -> np.ndarray:
     """Convert discrete index to continuous space vector.
     Args:
-        index (np.array): Discrete index.
-        domain_size (np.array): Size of the domain.
-        m_discrete (np.array): Number of discrete points along each dimension.
+        index (np.ndarray): Discrete 3D index (i, j, k).
+        scale (np.ndarray): Physical scale per dimension (L / m) as (sx, sy, sz).
     Returns:
-        np.array: Continuous space vector.
+        np.ndarray: Continuous space vector center for the voxel.
     """
 
     return np.multiply(index + np.array([0.5, 0.5, 0.5]), scale)
 
 
-def max_box_index(max_index, shape):
+def max_box_index(max_index: np.ndarray, shape: np.ndarray) -> np.ndarray:
     """Find the index of the box furthest from the maximum index along each dimension.
     Args:
         max_index (np.array): Index of the maximum value.
@@ -33,14 +32,20 @@ def max_box_index(max_index, shape):
     return max_dist_index
 
 
-def find_on_vector(max_index, max_dist_index, omega):
-    """Find the index along the vector from max_index to max_dist_index where the change in eta exceeds numerr.
+def find_on_vector(
+    max_index: np.ndarray,
+    max_dist_index: np.ndarray,
+    omega: np.ndarray,
+    numerr: float,
+) -> Tuple[np.ndarray, int]:
+    """Find index along the vector where discrete change exceeds tolerance.
     Args:
-        max_index (np.array): Index of the maximum value.
-        max_dist_index (np.array): Index of the box furthest from the maximum index.
-        omega (np.array): Array of local averages.
+        max_index (np.ndarray): Index of the maximum value (local coords).
+        max_dist_index (np.ndarray): Farthest index from maximum (local coords).
+        omega (np.ndarray): Local averages array for the local box.
+        numerr (float): Tolerance threshold for eta change.
     Returns:
-        tuple: Index along the vector and the dimension.
+        tuple[np.ndarray, int]: (index along the vector, principal dimension).
     """
 
     shape = np.array(omega.shape, dtype=np.int32)

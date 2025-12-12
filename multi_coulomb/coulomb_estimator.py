@@ -7,6 +7,7 @@ import os
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 
+from typing import Tuple
 import numpy as np
 from scipy.ndimage import maximum_filter, generate_binary_structure
 from scipy.optimize import linear_sum_assignment
@@ -16,6 +17,7 @@ from config import (
     m_discrete,
     domain_size,
     num_coulomb,
+    numerr,
     box_size1,
     box_size2,
     max_approx_step,
@@ -27,7 +29,7 @@ from config import (
 # --- Utilities --------------------------------------------------------------
 
 
-def best_permutation(y_true, y_est):
+def best_permutation(y_true: np.ndarray, y_est: np.ndarray) -> np.ndarray:
     """Find best matching between two sets of 3D vectors using Hungarian algorithm.
 
     Args:
@@ -171,7 +173,7 @@ def define_local_positions(num_coulomb, local_box_bounds, y_est_index, omega):
         # Find 4 strategic points
         idx_local = np.zeros((4, 3), dtype=np.int32)
         idx_local[3], dim[k] = find_on_vector(
-            max_idx_local, max_dist_local, omega_local
+            max_idx_local, max_dist_local, omega_local, numerr
         )
 
         ce = np.eye(1, 3, k=dim[k], dtype=np.int32)[0]
