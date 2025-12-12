@@ -2,7 +2,7 @@
 
 Code for estimating Coulomb potential parameters in continuous space.
 
-**Paper:** [arXiv:2510.08471](https://arxiv.org/abs/2510.08471) - "Learning Coulomb Potentials and Beyond with Free Fermions in Continuous Space"
+**Paper:** [arXiv:2510.08471](https://arxiv.org/abs/2510.08471) - "Learning Coulomb Potentials and Beyond with Fermions in Continuous Space"
 
 ## Quick Start
 
@@ -60,15 +60,19 @@ See module documentation for full details.
 
 ## License
 
-CC0 1.0 Universal (Public Domain)
+- Code: CC0 1.0 Universal (Public Domain)
+- Paper: Creative Commons Attribution 4.0 International
 
 ## Citation
 
 ```bibtex
-@article{Möbus2024,
-  title={Learning Coulomb Potentials and Beyond with Free Fermions in Continuous Space},
-  author={Möbus, Tim and others},
-  journal={arXiv preprint arXiv:2510.08471},
-  year={2024}
+@misc{Bluhm.2025,
+  doi = {10.48550/ARXIV.2510.08471},
+  url = {https://arxiv.org/abs/2510.08471},
+  author = {Bluhm,  Andreas and Lemm,  Marius and M\"{o}bus,  Tim and Siebert,  Oliver},
+  title = {Learning Coulomb Potentials and Beyond with Fermions in Continuous Space},
+  publisher = {arXiv},
+  year = {2025},
+  copyright = {Creative Commons Attribution 4.0 International}
 }
 ```

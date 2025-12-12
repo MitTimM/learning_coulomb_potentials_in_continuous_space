@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-title: Learning Coulomb Potentials in Continuous Space
+title: Learning Coulomb Potentials and Beyond with Fermions in Continuous Space
 message: Please cite this software using these metadata
 type: software
 authors:
@@ -9,7 +9,7 @@ authors:
     website: https://github.com/MitTimM
 repository-code: https://github.com/MitTimM/learning_coulomb_potentials_in_continuous_space
 url: https://arxiv.org/abs/2510.08471
-abstract: "Code for learning and estimating Coulomb potential parameters in continuous space using free fermion techniques."
+abstract: "Code for learning and estimating Coulomb potential parameters in continuous space using fermion-based techniques."
 keywords:
   - coulomb potentials
   - parameter estimation
@@ -26,3 +26,18 @@ identifiers:
   - description: The arXiv DOI
     type: doi
     value: 10.48550/arXiv.2510.08471
+preferred-citation:
+  type: article
+  title: Learning Coulomb Potentials and Beyond with Fermions in Continuous Space
+  authors:
+    - given-names: Andreas
+      family-names: Bluhm
+    - given-names: Marius
+      family-names: Lemm
+    - given-names: Tim
+      family-names: Möbus
+    - given-names: Oliver
+      family-names: Siebert
+  year: 2025
+  doi: 10.48550/arXiv.2510.08471
+  url: https://arxiv.org/abs/2510.08471
