@@ -7,6 +7,12 @@ authors:
     family-names: Möbus
     affiliation: University of Tübingen / University of Cambridge
     website: https://github.com/MitTimM
+  - given-names: Andreas
+    family-names: Bluhm
+  - given-names: Marius
+    family-names: Lemm
+  - given-names: Oliver
+    family-names: Siebert
 repository-code: https://github.com/MitTimM/learning_coulomb_potentials_in_continuous_space
 url: https://arxiv.org/abs/2510.08471
 abstract: "Code for learning and estimating Coulomb potential parameters in continuous space using fermion-based techniques."
