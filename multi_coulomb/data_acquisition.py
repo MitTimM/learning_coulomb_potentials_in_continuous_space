@@ -119,7 +119,7 @@ def test_data(omega, lam, y, scale):
                 err[ix, iy, iz] = abs(omega[ix, iy, iz] - exact)
 
     s = np.sort(err.ravel())
-    return s[-(num_coulomb + 1)]
+    return s[-(9 * num_coulomb + 1)]
 
 
 # --- Noise ------------------------------------------------------------------

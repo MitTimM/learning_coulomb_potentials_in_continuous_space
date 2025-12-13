@@ -15,7 +15,7 @@ import numpy as np
 
 # --- Domain and Grid ---
 domain_size = [1.0, 1.0, 1.0]  # Physical domain [Lx, Ly, Lz]
-m_discrete = [30, 30, 30]  # Grid resolution [nx, ny, nz]
+m_discrete = [40, 40, 40]  # Grid resolution [nx, ny, nz]
 
 # --- Bump Function (used by data_acquisition and coulomb_estimator) ---
 V_norm = 0.002668522135922286**2  # Normalization constant
@@ -59,19 +59,19 @@ def vectorized_bump_sq(x, y, z):
 # ============================================================================
 
 # --- Coulomb Source Parameters ---
-num_coulomb = 3  # Number of Coulomb sources
+num_coulomb = 2  # Number of Coulomb sources
 lambda_range = (1.0, 2.0)  # Charge λ range (min, max)
-y_dist = 0.4  # Minimum separation between sources
+y_dist = 0.3  # Minimum separation between sources
 sample_limit = 100  # Max attempts to sample well-separated sources
 
 # --- Noise Parameters ---
-epsilon = 1e-5  # Precision of local averages
-delta = 0.01  # Failure probability
-sigma = np.sqrt(delta * epsilon**2)  # Noise std (derived from ε and δ)
+epsilon = 0  # 1e-5  # Precision of local averages
+delta = 0  # 0.01  # Failure probability
+sigma = 0  # np.sqrt(delta * epsilon**2)  # Noise std (derived from ε and δ)
 
 # --- Integration Settings ---
 numerr = 5 * 1e-6  # Error tolerance (adaptive mode)
-n_per_dim = 40  # Quadrature points per dimension (fast mode)
+n_per_dim = 30  # Quadrature points per dimension (fast mode)
 integration_mode = "fast"  # "fast": Gauss-Legendre, "adaptive": scipy nquad
 
 # ============================================================================
@@ -90,8 +90,8 @@ weight = 100.0  # Weight parameter (unused in current implementation)
 # ============================================================================
 
 # --- Data Handling ---
-los = "0"  # "0": load, "1": save new data, "2": sample without saving
-multi_filename = "multi3_data_m30.pkl"  # Filename (main prepends data/ directory)
+los = "1"  # "0": load, "1": save new data, "2": sample without saving
+multi_filename = f"multi{num_coulomb}_data_m{m_discrete[0]}_v2.pkl"  # Filename (main prepends data/ directory)
 real_opt = True  # Whether to use the real values for optimization benchmarking
 
 # ============================================================================
